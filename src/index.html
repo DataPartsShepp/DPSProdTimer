@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DPS Focus Timer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand-lockup">
+        <div class="brand-mark"><img src="../img/DPS%20-Logo%20Trans.png" alt="Data Parts Shepperton logo"></div>
+        <div>
+          <p class="eyebrow">Data Parts Shepperton</p>
+          <h1>Focus Timer</h1>
+        </div>
+      </div>
+      <div class="status-pill"><span class="status-dot"></span><span id="statusText">Ready when you are</span></div>
+    </header>
+
+    <section class="workspace" aria-label="Productivity timer">
+      <div class="timer-column">
+        <div class="timer-card" id="timerCard">
+          <img class="card-watermark" src="../img/DPS%20Logo.jpg" alt="">
+          <div class="timer-kicker" id="modeLabel">FOCUS SESSION</div>
+          <div class="timer-display" id="timerDisplay" aria-live="polite">25:00</div>
+          <div class="timer-caption" id="timerCaption">One clear block. No distractions.</div>
+          <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+          <div class="timer-actions">
+            <button class="primary-button" id="startButton"><span class="button-icon">▶</span><span>Start focus</span></button>
+            <button class="icon-button" id="resetButton" title="Reset timer" aria-label="Reset timer">↺</button>
+          </div>
+        </div>
+        <div class="quick-presets" aria-label="Timer presets">
+          <button data-minutes="25" class="preset active">25 min</button>
+          <button data-minutes="50" class="preset">50 min</button>
+          <button data-minutes="5" class="preset">5 min break</button>
+          <button data-minutes="15" class="preset">15 min break</button>
+        </div>
+      </div>
+
+      <aside class="settings-panel">
+        <div class="panel-heading"><div><p class="eyebrow">Session setup</p><h2>Make it yours</h2></div><span class="spark">✦</span></div>
+        <label class="field-label" for="taskInput">What are you working on?</label>
+        <input class="text-input" id="taskInput" type="text" placeholder="e.g. Ship the new dashboard" maxlength="80">
+
+        <div class="setting-row"><div><span class="setting-title">Timer sound</span><span class="setting-note" id="soundName">Soft chime</span></div><button class="small-button" id="soundButton">Change</button></div>
+        <div class="sound-options" role="group" aria-label="Timer sound">
+          <button class="sound-option selected" data-sound="chime"><span class="sound-swatch chime"></span>Chime</button>
+          <button class="sound-option" data-sound="pulse"><span class="sound-swatch pulse"></span>Pulse</button>
+          <button class="sound-option" data-sound="bell"><span class="sound-swatch bell"></span>Bell</button>
+        </div>
+        <div class="setting-row compact"><div><span class="setting-title">Bring window forward</span><span class="setting-note">Always get the handoff</span></div><label class="switch"><input id="focusToggle" type="checkbox" checked><span></span></label></div>
+        <div class="setting-row compact"><div><span class="setting-title">Shake on completion</span><span class="setting-note">A little visual nudge</span></div><label class="switch"><input id="shakeToggle" type="checkbox" checked><span></span></label></div>
+
+        <div class="tip"><span class="tip-icon">⌁</span><p>Protect your attention. When the timer ends, take a real pause before starting again.</p></div>
+      </aside>
+    </section>
+    <footer><span>DPS PRODUCTIVITY SUITE</span><span id="sessionCount">0 sessions completed</span></footer>
+  </main>
+  <script src="renderer.js"></script>
+</body>
+</html>
